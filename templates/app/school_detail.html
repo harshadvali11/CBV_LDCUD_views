@@ -1,0 +1,40 @@
+{% extends 'app/home.html' %}
+
+{% block title %}
+    <title>LIST OF SCHOOL OBJECTS</title>
+{% endblock %}
+
+{% block body_block %}
+
+<div class='container'>
+    <div class='jumbotron'>
+        <table border='1px'>
+                <tr>
+                    <th>Name of School</th>
+                    <th>Principal of School</th>
+                    <th>Location of School</th>
+                </tr>
+                <tr>
+                    <td>{{school.name}}</td>
+                    <td>{{school.principal}}</td>
+                    
+                    <td>{{school.location}}</td>
+                </tr>
+        </table>
+    </div>
+    <div class='jumbotron'>
+        <h1>Student Details Are:</h1>
+        {% for student in school.students.all %}
+            <h1>student name: {{student.name}}</h1>
+            <h1>student age: {{student.age}}</h1>
+        {% endfor %}
+
+    </div>
+
+    <a href='{% url "app:update" pk=school.pk %}' class='btn btn-secondary'>Update</a>
+    
+    <a href='{% url "app:delete" pk=school.pk %}' class='btn btn-secondary'>Delete</a>
+</div>
+
+
+{% endblock %}

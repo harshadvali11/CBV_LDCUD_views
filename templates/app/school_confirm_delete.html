@@ -1,0 +1,20 @@
+{% extends 'app/home.html' %}
+
+{% block title %}
+    <title>Deletion OF SCHOOL OBJECTS</title>
+{% endblock %}
+
+{% block body_block %}
+
+<div class='container'>
+    <div class='jumbotron'>
+    
+        Are u sure to delete {{school}}
+        <form method="POST">
+            {% csrf_token %}
+            <input type="submit" value="yes-Delete" class="btn btn-warning">
+            <a href="{% url 'app:list' %}" >No-Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

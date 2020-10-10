@@ -1,0 +1,22 @@
+{% extends 'app/home.html' %}
+
+{% block title %}
+    <title>LIST OF SCHOOL OBJECTS</title>
+{% endblock %}
+
+{% block body_block %}
+    <div class='jumbotron'>
+        {% if schools %}
+            <h1>List of Schools are:</h1>
+            <ol>
+                {% for school in schools %}
+                    <li><a href="{{school.pk}}">{{school}}</a></li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <h1>No Schools to Display</h1>
+        {% endif %}
+
+    </div>
+
+{% endblock %}
